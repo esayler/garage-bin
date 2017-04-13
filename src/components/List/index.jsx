@@ -6,6 +6,10 @@ import Item from '../Item'
 
 class List extends Component {
 
+  state = {
+    sort: this.props.sort,
+  }
+
   componentDidMount() {
     this.props.clearItems()
     this.props.getItems()
@@ -20,15 +24,28 @@ class List extends Component {
     this.props.setActiveItem(id)
   }
 
+  sortItems = () => {
+    if (this.state.sort === null || this.state.sort === 'asc') {
+      this.setState({sort: 'desc'})
+    } else {
+      this.setState({sort: 'asc'})
+    }
+    // this.props.sortItems()
+  }
+
+  compareDesc = (a, b) => a.name.localeCompare(b.name)
+
+  compareAsc = (a, b) => a.name.localeCompare(b.name) * -1
+
   render() {
-    const { list } = this.props
-    const listItems = list.length !== 0 ? list.map(item => {
+    let { list } = this.props
+    const sortedList = this.state.sort === 'desc' ? list.sort(this.compareDesc) : list.sort(this.compareAsc)
+
+    const listItems = sortedList.length !== 0 ? sortedList.map(item => {
       return (
         <div key={item.id} className='list-item'>
           <a onClick={() => this.setActiveItem(item.id)}>{item.name}</a>
-
         </div>
-        // <Item {...item} />
       )
     }) : null
 
@@ -66,6 +83,7 @@ class List extends Component {
           <span>Dusty: {numDusty} </span>
           <span>Rancid: {numRancid} </span>
         </div>
+        <button className='btn btn-sort' onClick={this.sortItems}>Sort</button>
         <div className='list-items'>
           {listItems}
         </div>

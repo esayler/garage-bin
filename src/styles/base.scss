@@ -126,12 +126,20 @@ hr {
 
 
 .btn-close {
-
   background-color: $red-2;
   &:hover {
     background-color: $red-1;
   }
 }
+
+.btn-sort {
+  background-color: $wisteria;
+  &:hover {
+    background-color: $amethyst;
+  }
+}
+
+
 
 .btn-open {
   background-color: $open-btn-bg-color;

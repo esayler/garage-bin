@@ -64,3 +64,16 @@ export const setActiveItem = (id) => (dispatch, getState) => {
   })
   dispatch(push(`/items/${id}`))
 }
+
+export const sortItems = () => (dispatch, getState) => {
+  const { sort } = getState()
+  if (sort === 'asc') {
+    dispatch({
+      type: 'SET_SORT_DESC',
+    })
+  } else {
+    dispatch({
+      type: 'SET_SORT_ASC',
+    })
+  }
+}
