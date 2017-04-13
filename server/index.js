@@ -47,8 +47,10 @@ app.get('/api/v1/items', (req, res) => {
 
 app.post('/api/v1/items', (req, res) => {
   const { name, reason, cleanliness } = req.body
-  app.locals.items.push({ name, reason, cleanliness })
-  res.sendStatus(200)
+  const id = app.locals.items.length
+  const newItem = { id, name, reason, cleanliness }
+  app.locals.items.push(newItem)
+  res.json(newItem)
 })
 
 app.listen(app.get('port'), () => {

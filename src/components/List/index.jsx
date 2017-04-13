@@ -11,16 +11,24 @@ class List extends Component {
     this.props.getItems()
   }
 
+  closeGarage = () => {
+    this.props.closeGarage()
+  }
+
   render() {
     const { list } = this.props
     const listItems = list.length !== 0 ? list.map(item => {
       return (
-        <Item {...item} />
+        <div key={item.id} className='list-item'>
+          <Link to={`/items/${item.id}`}>{item.name}</Link>
+        </div>
+        // <Item {...item} />
       )
     }) : null
 
     return (
       <div className='list'>
+        <button className='btn btn-close' onClick={this.closeGarage}>Close Garage</button>
         <FormContainer />
         <div className='list-items'>
           {listItems}

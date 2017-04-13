@@ -108,22 +108,8 @@ hr {
 
 .btn {
   @include button-input-style;
-  color: $new-btn-text-color;
+  color: $open-btn-text-color;
   font-size: 16px;
-}
-
-.btn-new {
-  margin-top: 30px;
-  margin-right: 60px;
-  margin-bottom: 10px;
-  float: right;
-  background-color: $new-btn-bg-color;
-  font-size: 18px;
-  font-weight: 300;
-
-  &:hover {
-    background-color: $new-btn-hover-color;
-  }
 }
 
 .btn-submit,
@@ -134,6 +120,25 @@ hr {
 
   &:hover {
     background-color: $submit-btn-hover-color;
+  }
+}
+
+
+.btn-close {
+
+  background-color: $red-2;
+  &:hover {
+    background-color: $red-1;
+  }
+}
+
+.btn-open {
+  background-color: $open-btn-bg-color;
+  color: $open-btn-text-color;
+  font-weight: 300;
+
+  &:hover {
+    background-color: $open-btn-hover-color;
   }
 }
 

@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import { push } from 'react-router-redux'
 
 export const appendItem = (item) => (dispatch, getState) => {
   fetch(`/api/v1/items/`,
@@ -13,11 +14,11 @@ export const appendItem = (item) => (dispatch, getState) => {
         cleanliness: item.cleanliness,
       }),
     })
-    .then(res => {
-      console.log(res)
+    .then(res => res.json())
+    .then(payload => {
       dispatch({
         type: 'APPEND_ITEM',
-        item,
+        item: payload,
       })
     })
 }
@@ -38,5 +39,20 @@ export const getItems = () => (dispatch, getState) => {
 export const clearItems = () => {
   return {
     type: 'CLEAR_ITEMS',
+  }
+}
+
+
+export const openGarage = () => (dispatch, getState) => {
+  dispatch(push('/list'))
+  return {
+    type: 'UNLOCK',
+  }
+}
+
+export const closeGarage = () => (dispatch, getState) => {
+  dispatch(push('/'))
+  return {
+    type: 'LOCK',
   }
 }
