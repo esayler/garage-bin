@@ -7,7 +7,7 @@ export default class Select extends React.Component {
     }) : null
 
     return (
-      <div>
+      <div className='select'>
         <select value={this.props.value} onChange={e => this.props.updateSelection(e)}>
           {options}
         </select>

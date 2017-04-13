@@ -13,7 +13,7 @@ export default class Root extends React.Component {
       <Provider store={this.props.store}>
         <ConnectedRouter history={this.props.history} >
           <div>
-            <Link to='/' className='hello-link'><h1>Garge-Bin</h1></Link>
+            <Link to='/' className='hello-link'><h1>Garage-Bin</h1></Link>
 
             <nav>
               <Link to='/'>Home</Link>

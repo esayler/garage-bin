@@ -1,4 +1,7 @@
 @import 'normalize';
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700|Oswald');
+@import 'variables';
+@import 'mixins';
 
 $link-color: #0F0F0F;
 $link-hover-color: #009688;
@@ -13,6 +16,7 @@ html {
 }
 
 body {
+  // font-family: 'Lato', sans-serif;
   font-family: Helvetica, sans-serif;
   font-weight: lighter;
   text-align: center;
@@ -42,6 +46,7 @@ a {
   text-decoration: underline;
 
   h1 {
+    font-family: Helvetica, sans-serif;
     font-weight: lighter;
   }
 
@@ -66,11 +71,120 @@ a {
   filter: opacity(75%);
 }
 
-.content {
+.list-item {
   height: auto;
   width: 40%;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
   background: $content-bg-color;
+}
+
+a {
+  transition: all 0.3s ease;
+  color: $link-text-color;
+  text-decoration: none;
+
+  &.active {
+    color: $link-active-color;
+
+    &:hover {
+      color: $link-active-color;
+    }
+  }
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+
+hr {
+  width: 90%;
+  height: 0;
+  border: 0;
+  border-top: 1px solid $border-hr-color;
+}
+
+.btn {
+  @include button-input-style;
+  color: $new-btn-text-color;
+  font-size: 16px;
+}
+
+.btn-new {
+  margin-top: 30px;
+  margin-right: 60px;
+  margin-bottom: 10px;
+  float: right;
+  background-color: $new-btn-bg-color;
+  font-size: 18px;
+  font-weight: 300;
+
+  &:hover {
+    background-color: $new-btn-hover-color;
+  }
+}
+
+.btn-submit,
+.btn-update {
+  background-color: $submit-btn-bg-color;
+  color: $submit-btn-text-color;
+  font-weight: 300;
+
+  &:hover {
+    background-color: $submit-btn-hover-color;
+  }
+}
+
+input,
+textarea {
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid $input-placeholder-color;
+  border-radius: 5px;
+  outline: 0;
+  font-size: 16px;
+}
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $input-placeholder-color;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: $input-placeholder-color;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: $input-placeholder-color;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: $input-placeholder-color;
+}
+
+
+.select {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0 auto;
+    display: inline-block;
+    // background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.select select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select select:focus {
+    outline: none;
 }

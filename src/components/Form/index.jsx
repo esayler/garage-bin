@@ -42,7 +42,7 @@ export default class Form extends Component {
           value={this.state.cleanliness}
           updateSelection={this.updateCleanliness}
         />
-        <button onClick={this.appendItem}>Submit</button>
+        <button className='btn btn-submit' onClick={this.appendItem}>Submit</button>
       </div>
     )
   }
