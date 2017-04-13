@@ -10,6 +10,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     list: state.list,
+    router: state.router,
+    activeItem: state.activeItem,
   }
 }
 

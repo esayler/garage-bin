@@ -6,6 +6,7 @@ import About from '../About'
 import NotFound from '../NotFound'
 import HomeContainer from '../../containers/HomeContainer'
 import List from '../List'
+import Item from '../Item'
 
 export default class Root extends React.Component {
   render() {
@@ -18,6 +19,7 @@ export default class Root extends React.Component {
               <Switch>
                 <Route exact path='/' component={HomeContainer} />
                 <Route path='/list' component={List} />
+                <Route path='/items/:id' component={Item} />
                 <Route component={NotFound} />
               </Switch>
             </div>

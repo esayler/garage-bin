@@ -15,12 +15,18 @@ class List extends Component {
     this.props.closeGarage()
   }
 
+  setActiveItem = (id) => {
+    console.log(id)
+    this.props.setActiveItem(id)
+  }
+
   render() {
     const { list } = this.props
     const listItems = list.length !== 0 ? list.map(item => {
       return (
         <div key={item.id} className='list-item'>
-          <Link to={`/items/${item.id}`}>{item.name}</Link>
+          <a onClick={() => this.setActiveItem(item.id)}>{item.name}</a>
+
         </div>
         // <Item {...item} />
       )

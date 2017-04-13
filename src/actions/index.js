@@ -56,3 +56,11 @@ export const closeGarage = () => (dispatch, getState) => {
     type: 'LOCK',
   }
 }
+
+export const setActiveItem = (id) => (dispatch, getState) => {
+  dispatch({
+    type: 'SET_ACTIVE_ITEM',
+    id,
+  })
+  dispatch(push(`/items/${id}`))
+}
