@@ -5,11 +5,15 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const path = require('path')
 const environment = process.env.NODE_ENV || 'development'
+const morgan = require('morgan')
 // const configuration = require('./knexfile')[environment]
 // const database = require('knex')(configuration)
 // const historyFallback = require('connect-history-api-fallback')
 
 app.use(cors())
+app.use(morgan('dev'))
+
+app.locals.items = []
 
 if (environment !== 'production') {
   console.log(environment)
@@ -37,10 +41,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set('port', process.env.PORT || 3000)
 
+app.get('/api/v1/items', (req, res) => {
+  res.json(app.locals.items)
+})
+
+app.post('/api/v1/items', (req, res) => {
+  const { name, reason, cleanliness } = req.body
+  app.locals.items.push({ name, reason, cleanliness })
+  res.sendStatus(200)
+})
+
 app.listen(app.get('port'), () => {
   console.log(`We running on ${app.get('port')}.`)
 })
-
 
 // display app at the root and all other routes
 app.get('*', function (request, response) {

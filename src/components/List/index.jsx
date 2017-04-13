@@ -6,6 +6,10 @@ import Item from '../Item'
 
 class List extends Component {
 
+  componentDidMount() {
+    this.props.clearItems()
+    this.props.getItems()
+  }
 
   render() {
     const { list } = this.props
