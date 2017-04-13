@@ -5,10 +5,15 @@ import { ConnectedRouter, push } from 'react-router-redux'
 import About from '../About'
 import NotFound from '../NotFound'
 import HomeContainer from '../../containers/HomeContainer'
+import ListContainer from '../../containers/listContainer'
 import List from '../List'
 import Item from '../Item'
 
-export default class Root extends React.Component {
+class Root extends React.Component {
+  componentDidMount() {
+     this.props.getItems()
+  }
+
   render() {
     return (
       <Provider store={this.props.store}>
@@ -31,3 +36,4 @@ export default class Root extends React.Component {
 }
 
 
+export default ListContainer(Root)

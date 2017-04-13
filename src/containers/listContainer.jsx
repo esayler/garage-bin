@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
     list: state.list,
     router: state.router,
     activeItem: state.activeItem,
+    sort: state.sort,
   }
 }
 

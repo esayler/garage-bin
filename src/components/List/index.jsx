@@ -5,14 +5,15 @@ import FormContainer from '../../containers/FormContainer'
 import Item from '../Item'
 
 class List extends Component {
-
-  state = {
-    sort: this.props.sort,
+  constructor() {
+    super()
+    this.state = {
+      sort: null,
+    }
   }
 
   componentDidMount() {
-    this.props.clearItems()
-    this.props.getItems()
+    this.setState({sort: this.props.sort})
   }
 
   closeGarage = () => {
@@ -20,22 +21,22 @@ class List extends Component {
   }
 
   setActiveItem = (id) => {
-    console.log(id)
     this.props.setActiveItem(id)
   }
 
   sortItems = () => {
     if (this.state.sort === null || this.state.sort === 'asc') {
       this.setState({sort: 'desc'})
+      this.props.setSortDirection('desc')
     } else {
       this.setState({sort: 'asc'})
+      this.props.setSortDirection('asc')
     }
-    // this.props.sortItems()
   }
 
-  compareDesc = (a, b) => a.name.localeCompare(b.name)
+  compareDesc = (a, b) => (a.name.localeCompare(b.name))
 
-  compareAsc = (a, b) => a.name.localeCompare(b.name) * -1
+  compareAsc = (a, b) => (a.name.localeCompare(b.name) * -1)
 
   render() {
     let { list } = this.props
@@ -64,7 +65,7 @@ class List extends Component {
         return acc
       }
     }, 0)
-   
+
     const numRancid = list.reduce((acc, curr, index) => {
       if (curr.cleanliness === 'Rancid') {
         return acc + 1
