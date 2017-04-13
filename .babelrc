@@ -5,6 +5,13 @@
         "react",
         "stage-2"
       ]
+    },
+    "development": {
+      "presets": [
+        "env",
+        "react",
+        "stage-2"
+      ]
     }
   },
   "presets": [
