@@ -11,6 +11,7 @@ app.use(cors())
 app.use(morgan('dev'))
 
 app.locals.items = []
+app.use('/public', express.static(path.join(__dirname, '../public')))
 
 if (environment !== 'production') {
   console.log(environment)

@@ -18,7 +18,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath: '/public/',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss', '.css'],
