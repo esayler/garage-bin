@@ -76,3 +76,26 @@ export const setSortDirection = (direction) => (dispatch, getState) => {
     })
   }
 }
+
+export const updateActiveItemCleanliness = (item) => (dispatch, getState) => {
+  fetch(`/api/v1/items/`,
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: item.id,
+        name: item.name,
+        reason: item.reason,
+        cleanliness: item.cleanliness,
+      }),
+    })
+    .then(res => res.json())
+    .then(payload => {
+      dispatch({
+        type: 'UPDATE_ITEM',
+        item: payload,
+      })
+    })
+}

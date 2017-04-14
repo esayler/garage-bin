@@ -53,6 +53,22 @@ app.post('/api/v1/items', (req, res) => {
   res.json(newItem)
 })
 
+app.put('/api/v1/items', (req, res) => {
+  const { id, name, reason, cleanliness } = req.body
+  const newItem = { id, name, reason, cleanliness }
+
+  app.locals.items = app.locals.items.map((item, index) => {
+    if (item.id !== id) {
+      return item
+    }
+
+    return newItem
+  })
+
+  console.log(app.locals.items)
+  res.json(newItem)
+})
+
 app.listen(app.get('port'), () => {
   console.log(`We running on ${app.get('port')}.`)
 })
