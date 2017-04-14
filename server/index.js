@@ -6,9 +6,6 @@ const fs = require('fs')
 const path = require('path')
 const environment = process.env.NODE_ENV || 'development'
 const morgan = require('morgan')
-// const configuration = require('./knexfile')[environment]
-// const database = require('knex')(configuration)
-// const historyFallback = require('connect-history-api-fallback')
 
 app.use(cors())
 app.use(morgan('dev'))
