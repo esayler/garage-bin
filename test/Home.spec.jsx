@@ -19,8 +19,8 @@ describe('<Home />', () => {
       wrapper = shallow(<Home />)
     })
 
-    it('should show text "Hello, World!"', () => {
-      expect(wrapper.find('.content')).to.contain.text('Hello, World!')
+    it('should show button text "Open Garage"', () => {
+      expect(wrapper.find('.content')).to.contain.text('Open Garage')
     })
   })
 })

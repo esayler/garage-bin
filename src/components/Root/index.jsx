@@ -9,7 +9,7 @@ import ListContainer from '../../containers/listContainer'
 import List from '../List'
 import Item from '../Item'
 
-class Root extends React.Component {
+export class Root extends React.Component {
   componentDidMount() {
      this.props.getItems()
   }
