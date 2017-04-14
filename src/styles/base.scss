@@ -16,7 +16,6 @@ html {
 }
 
 body {
-  // font-family: 'Lato', sans-serif;
   font-family: Helvetica, sans-serif;
   font-weight: lighter;
   text-align: center;
@@ -99,13 +98,56 @@ a {
   }
 }
 
-
 hr {
-  width: 90%;
+  max-width: 750px;
   height: 0;
   border: 0;
   border-top: 1px solid $border-hr-color;
 }
+
+.form {
+  margin: 20px 0;
+}
+
+.label {
+  // font-family: 'Oswald';
+  display: inline;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.stat {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.item {
+  padding: 50px;
+}
+
+.item--id {
+  height: 100%;
+  display: inline-block;
+  font-size: 36px;
+  margin: 0 10px;
+  font-weight: lighter;
+}
+
+.item--name {
+  font-family: 'Oswald';
+  margin: 5px auto;
+  font-size: 36px;
+  display: inline-block;
+
+}
+
+.item--reason {
+ margin-top: 20px;
+ margin-bottom: 40px;
+ font-size: 24px;
+}
+
+
 
 .btn {
   @include button-input-style;
@@ -117,7 +159,6 @@ hr {
 .btn-update {
   background-color: $submit-btn-bg-color;
   color: $submit-btn-text-color;
-  font-weight: 300;
 
   &:hover {
     background-color: $submit-btn-hover-color;
@@ -133,18 +174,16 @@ hr {
 }
 
 .btn-sort {
+  display: inline-block;
   background-color: $wisteria;
   &:hover {
     background-color: $amethyst;
   }
 }
 
-
-
 .btn-open {
   background-color: $open-btn-bg-color;
   color: $open-btn-text-color;
-  font-weight: 300;
 
   &:hover {
     background-color: $open-btn-hover-color;
@@ -153,12 +192,13 @@ hr {
 
 input,
 textarea {
-  margin: 10px 0;
+  margin: 0 10px;
   padding: 10px 20px;
   border: 1px solid $input-placeholder-color;
   border-radius: 5px;
   outline: 0;
   font-size: 16px;
+  
 }
 
 
@@ -180,25 +220,48 @@ textarea {
 
 
 .select {
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     width: 120px;
-    border-radius: 3px;
+    // border-radius: none;
     overflow: hidden;
-    margin: 0 auto;
+    margin: -15px 10px;
     display: inline-block;
+        position: relative;
+
+      // display: block;
     // background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
 }
 
 .select select {
-    padding: 5px 8px;
-    width: 130%;
+    padding: 5px 10px;
+    color: $select-display-color;
+    width: 100%;
     border: none;
     box-shadow: none;
     background: transparent;
     background-image: none;
     -webkit-appearance: none;
+    padding: 10px 20px;
+    border: 1px solid $input-placeholder-color;
+    border-radius: 5px;
+    outline: 0;
+    font-size: 16px;
+
 }
 
 .select select:focus {
     outline: none;
+}
+
+label.select:after {
+  content: "\f0dc";
+  font-family: FontAwesome;
+  color: $select-display-color;
+  position: absolute; 
+  right: 6px; 
+  top: 13px;
+  z-index: 1;
+  width: 10%;
+  height: 100%;  
+  pointer-events: none;    
 }

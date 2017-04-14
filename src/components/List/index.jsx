@@ -79,12 +79,14 @@ class List extends Component {
         <button className='btn btn-close' onClick={this.closeGarage}>Close Garage</button>
         <FormContainer />
         <div className='stats'>
-          <span>Total: {list ? list.length : 0} </span>
-          <span>Sparkling: {numSparkling} </span>
-          <span>Dusty: {numDusty} </span>
-          <span>Rancid: {numRancid} </span>
+          <hr />
+          <div className='stat'><h4 className='label'>Total:</h4> <span>{list ? list.length : 0} </span></div>
+          <div className='stat'><h4 className='label'>Sparkling</h4>: <span>{numSparkling} </span></div>
+          <div className='stat'><h4 className='label'>Dusty</h4>: <span>{numDusty} </span></div>
+          <div className='stat'><h4 className='label'>Rancid</h4>: <span>{numRancid} </span></div>
+          <button className='btn btn-sort' onClick={this.sortItems}>Sort</button>
+          <hr />
         </div>
-        <button className='btn btn-sort' onClick={this.sortItems}>Sort</button>
         <div className='list-items'>
           {listItems}
         </div>

@@ -28,11 +28,9 @@ class Item extends Component {
   render() {
     const item = this.state.activeItem || {}
     return (
-      <div className='list-item'>
-        <p>{item.id}</p>
-        <h2>{item.name}</h2>
-        <p>{item.reason}</p>
-        <p>{item.cleanliness}</p>
+      <div className='list-item item'>
+        <div><span className='item--id'>{item.id}</span><h4 className='item--name'>{item.name}</h4></div>
+        <div className='item--reason'>{item.reason}</div>
         <Select
           name='cleanliness'
           className='select cleanliness'
